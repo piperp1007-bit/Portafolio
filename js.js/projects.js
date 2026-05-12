@@ -18,6 +18,14 @@ const proyectos = [
     tags: ["Landing Page", "PHP"],
     imagen: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=800",
     link: "#"
+  },
+  {
+    titulo: "CASA HOGAR",
+    subtitulo: "Geriátrico Especializado",
+    desc: "Plataforma integral para el cuidado del adulto mayor con galerías, filtros de servicios y contacto directo.",
+    tags: ["Salud", "Landing Page", "JS"],
+    imagen: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800",
+    link: "geriatrico.html" // Enlace al nuevo archivo
   }
 ];
 

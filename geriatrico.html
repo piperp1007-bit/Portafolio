@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>Casa Hogar  — Cuidado con Amor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="css/geriatrico-style.css">
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="logo-icon">🌿</div>
+      <div class="logo-text">casa <span>hogar</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Instalaciones</a></li>
+      <li><a href="#actividades">Actividades</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-wa" onclick="openWA('Hola! Me interesa conocer más sobre Casa Hogar El Remanso.')">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp
+    </button>
+    <button class="burger" id="burger" onclick="toggleMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#about" onclick="toggleMenu()">Nosotros</a>
+  <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+  <a href="#galeria" onclick="toggleMenu()">Instalaciones</a>
+  <a href="#actividades" onclick="toggleMenu()">Actividades</a>
+  <a href="#equipo" onclick="toggleMenu()">Equipo</a>
+  <a href="#contacto" onclick="toggleMenu()">Contacto</a>
+  <button class="mob-wa" onclick="openWA('Hola! Me interesa conocer más sobre Casa Hogar.')">
+    💬 Escribir por WhatsApp
+  </button>
+</div>
+
+<!-- ══ HERO ══════════════════════════════════════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <img class="hero-img" src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1600&q=80" alt="Casa Hogar"/>
+  <div class="hero-pattern"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-left fade-in">
+      <div class="hero-badge">🏡 Cuidado geriátrico especializado</div>
+      <h1 class="hero-title">
+        Un hogar con<br/>
+        <em>amor y dignidad</em>
+        para tus seres queridos
+      </h1>
+      <p class="hero-desc">En Casa Hogar El Remanso brindamos atención integral, cálida y profesional a adultos mayores. Porque merecen vivir sus años dorados con alegría, seguridad y compañía.</p>
+      <div class="hero-btns">
+        <button class="btn-prim" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Agendar visita gratis</button>
+        <button class="btn-sec" onclick="document.getElementById('galeria').scrollIntoView({behavior:'smooth'})">Ver instalaciones</button>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><div class="t-icon">⭐</div><div class="t-text"><strong>4.9/5</strong>Calificación familiar</div></div>
+        <div class="trust-item"><div class="t-icon">🕐</div><div class="t-text"><strong>24/7</strong>Atención continua</div></div>
+        <div class="trust-item"><div class="t-icon">👨‍⚕️</div><div class="t-text"><strong>Médico</strong>Permanente</div></div>
+      </div>
+    </div>
+    <div class="hero-card fade-in">
+      <div class="hcard-title">¿Qué ofrecemos?</div>
+      <div class="quick-items">
+        <div class="qi"><div class="qi-icon" style="background:#fef3e2">🛏️</div><div class="qi-text"><div class="name">Habitaciones privadas</div><div class="desc">Cómodas, seguras y con TV</div></div></div>
+        <div class="qi"><div class="qi-icon" style="background:#e8f5e9">🥗</div><div class="qi-text"><div class="name">Alimentación balanceada</div><div class="desc">3 comidas + refrigerios diarios</div></div></div>
+        <div class="qi"><div class="qi-icon" style="background:#e3f2fd">🏥</div><div class="qi-text"><div class="name">Atención médica 24/7</div><div class="desc">Médico, enfermería y fisioterapia</div></div></div>
+        <div class="qi"><div class="qi-icon" style="background:#f3e5f5">🎨</div><div class="qi-text"><div class="name">Actividades recreativas</div><div class="desc">Arte, música, ejercicio y más</div></div></div>
+        <div class="qi"><div class="qi-icon" style="background:#fce4ec">👨‍👩‍👧</div><div class="qi-text"><div class="name">Visitas familiares</div><div class="desc">Horarios amplios y flexibles</div></div></div>
+      </div>
+      <button class="hcard-cta" onclick="openWA('Hola! Quisiera agendar una visita a Casa Hogar.')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Solicitar información ahora
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fade-in"><div class="stat-n" id="s1">0</div><div class="stat-l">Años de experiencia</div></div>
+      <div class="stat-item fade-in"><div class="stat-n" id="s2">0</div><div class="stat-l">Familias atendidas</div></div>
+      <div class="stat-item fade-in"><div class="stat-n" id="s3">0</div><div class="stat-l">Personal especializado</div></div>
+      <div class="stat-item fade-in"><div class="stat-n" id="s4">0</div><div class="stat-l">Satisfacción familiar</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══════════════════════════════════════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-imgs fade-in">
+        <img class="about-img-main" src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800&q=80" alt="Nuestro hogar"/>
+        <img class="about-img-2" src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&q=80" alt="Cuidado personalizado"/>
+        <div class="about-chip"><div class="big">15</div><div class="small">Años de amor</div></div>
+      </div>
+      <div class="about-text fade-in">
+        <div class="s-label">Quiénes somos</div>
+        <h2 class="s-title">Más que un hogar,<br/><em>una familia</em></h2>
+        <p class="s-sub">Casa Hogar nació hace 15 años con una misión clara: ofrecer a los adultos mayores un espacio digno, seguro y lleno de alegría donde se sientan queridos y acompañados. Somos una familia que cuida a su familia.</p>
+        <div class="values-grid" style="margin-top:24px">
+          <div class="value-item"><div class="v-icon">💛</div><div class="v-name">Amor</div><div class="v-desc">Cada residente recibe trato cálido y personalizado</div></div>
+          <div class="value-item"><div class="v-icon">🛡️</div><div class="v-name">Seguridad</div><div class="v-desc">Instalaciones seguras con vigilancia permanente</div></div>
+          <div class="value-item"><div class="v-icon">🌱</div><div class="v-name">Bienestar</div><div class="v-desc">Cuerpo, mente y espíritu en equilibrio</div></div>
+          <div class="value-item"><div class="v-icon">🤝</div><div class="v-name">Familia</div><div class="v-desc">Comunicación constante con sus seres queridos</div></div>
+        </div>
+        <div class="about-cta">
+          <button class="btn-prim" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Agendar visita</button>
+          <button class="btn-sec" style="border-color:var(--crema-3);color:var(--cafe)" onclick="document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">Ver servicios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICIOS ══════════════════════════════════════ -->
+<section class="section" id="servicios" style="background:var(--crema-2)">
+  <div class="container">
+    <div class="services-header fade-in">
+      <div class="s-label">Nuestros servicios</div>
+      <h2 class="s-title">Atención integral para cada <em>necesidad</em></h2>
+      <p class="s-sub">Ofrecemos un plan de cuidado personalizado que cubre todas las necesidades del adulto mayor con calidad y calidez.</p>
+    </div>
+    <div class="services-grid">
+      <div class="srv-card fade-in"><span class="srv-emoji">🏥</span><div class="srv-name">Atención Médica 24/7</div><div class="srv-desc">Médico permanente, enfermería especializada y control continuo de la salud de cada residente.</div><ul class="srv-items"><li>Visitas médicas diarias</li><li>Control de medicamentos</li><li>Monitoreo de signos vitales</li><li>Atención de urgencias</li><li>Coordinación con especialistas</li></ul></div>
+      <div class="srv-card fade-in"><span class="srv-emoji">🤸</span><div class="srv-name">Fisioterapia y Rehabilitación</div><div class="srv-desc">Programa personalizado de fisioterapia para mantener y mejorar la movilidad y calidad de vida.</div><ul class="srv-items"><li>Fisioterapia individual</li><li>Terapia ocupacional</li><li>Ejercicio terapéutico</li><li>Prevención de caídas</li><li>Rehabilitación post-quirúrgica</li></ul></div>
+      <div class="srv-card fade-in"><span class="srv-emoji">🧠</span><div class="srv-name">Estimulación Cognitiva</div><div class="srv-desc">Actividades especializadas para mantener activa la mente y prevenir o retardar el deterioro cognitivo.</div><ul class="srv-items"><li>Talleres de memoria</li><li>Terapia para Alzheimer</li><li>Juegos mentales</li><li>Lectura y escritura</li><li>Musicoterapia</li></ul></div>
+      <div class="srv-card fade-in"><span class="srv-emoji">🥗</span><div class="srv-name">Nutrición Especializada</div><div class="srv-desc">Menú balanceado elaborado por nutricionista, adaptado a cada condición de salud y preferencia.</div><ul class="srv-items"><li>3 comidas principales</li><li>2 refrigerios diarios</li><li>Dietas especiales</li><li>Control nutricional</li><li>Hidratación supervisada</li></ul></div>
+      <div class="srv-card fade-in"><span class="srv-emoji">🛁</span><div class="srv-name">Cuidado Personal</div><div class="srv-desc">Asistencia completa en higiene, vestuario y cuidado personal con total respeto y dignidad.</div><ul class="srv-items"><li>Baño asistido diario</li><li>Cuidado de piel</li><li>Peluquería mensual</li><li>Podología</li><li>Cambio de ropa y pañales</li></ul></div>
+      <div class="srv-card fade-in"><span class="srv-emoji">🌙</span><div class="srv-name">Cuidado Nocturno</div><div class="srv-desc">Personal especializado durante toda la noche para garantizar descanso seguro y asistencia inmediata.</div><ul class="srv-items"><li>Auxiliar nocturno</li><li>Monitoreo en habitaciones</li><li>Asistencia en el baño</li><li>Control de posición</li><li>Atención inmediata</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALERÍA ══════════════════════════════════════════ -->
+<section id="galeria">
+  <div class="container">
+    <div class="galeria-header fade-in">
+      <div class="s-label">Instalaciones</div>
+      <h2 class="s-title">Conoce nuestro <em>hogar</em></h2>
+      <p class="s-sub">Espacios diseñados para brindar comodidad, seguridad y una atmósfera de hogar cálido y familiar.</p>
+    </div>
+    <div class="galeria-tabs">
+      <button class="g-tab active" onclick="filterGallery('all',this)">Todo</button>
+      <button class="g-tab" onclick="filterGallery('habitaciones',this)">Habitaciones</button>
+      <button class="g-tab" onclick="filterGallery('comunes',this)">Áreas comunes</button>
+      <button class="g-tab" onclick="filterGallery('exterior',this)">Exterior</button>
+      <button class="g-tab" onclick="filterGallery('medico',this)">Área médica</button>
+    </div>
+  </div>
+  <div class="galeria-grid" id="galeriaGrid"></div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-nav lb-prev" onclick="navLightbox(-1)">‹</button>
+  <img class="lb-img" id="lbImg" src="" alt=""/>
+  <button class="lb-nav lb-next" onclick="navLightbox(1)">›</button>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<!-- ══ ACTIVIDADES ════════════════════════════════════ -->
+<section class="section" id="actividades">
+  <div class="container">
+    <div class="act-header fade-in">
+      <div class="s-label">Actividades</div>
+      <h2 class="s-title">Días llenos de <em>alegría</em></h2>
+      <p class="s-sub">Programamos actividades diarias pensadas para estimular el cuerpo, la mente y el espíritu de cada residente.</p>
+    </div>
+    <div class="act-grid">
+      <div class="act-card fade-in"><img src="https://images.unsplash.com/photo-1524646349956-1590eacfa324?w=600&q=80" class="act-img" alt="Arte"/><div class="act-body"><div class="act-tag">Creativo</div><div class="act-name">Taller de Arte y Manualidades</div><div class="act-desc">Pintura, tejido, origami y más. Estimula la creatividad y la motricidad fina.</div></div></div>
+      <div class="act-card fade-in"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" class="act-img" alt="Ejercicio"/><div class="act-body"><div class="act-tag">Físico</div><div class="act-name">Ejercicio y Movilidad</div><div class="act-desc">Yoga suave, caminatas y ejercicios adaptados supervisados por fisioterapeuta.</div></div></div>
+      <div class="act-card fade-in"><img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=600&q=80" class="act-img" alt="Música"/><div class="act-body"><div class="act-tag">Terapéutico</div><div class="act-name">Musicoterapia</div><div class="act-desc">Sesiones de música en vivo, canto grupal y ritmos que despiertan emociones y recuerdos.</div></div></div>
+      <div class="act-card fade-in"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" class="act-img" alt="Social"/><div class="act-body"><div class="act-tag">Social</div><div class="act-name">Juegos y Convivencia</div><div class="act-desc">Bingo, parqués, dominó, tertulias y películas en grupo para fomentar la amistad.</div></div></div>
+    </div>
+    <!-- Schedule -->
+    <div class="schedule fade-in" style="margin-top:48px">
+      <div class="sch-title">📅 Rutina diaria típica</div>
+      <div class="sch-grid">
+        <div class="sch-col">
+          <div class="sch-col-head">🌅 Mañana</div>
+          <div class="sch-items">
+            <div class="sch-item"><div class="sch-time">6:30</div><div class="sch-act"><div class="name">Despertar y aseo</div><div class="loc">Habitaciones</div></div></div>
+            <div class="sch-item"><div class="sch-time">7:30</div><div class="sch-act"><div class="name">Desayuno</div><div class="loc">Comedor</div></div></div>
+            <div class="sch-item"><div class="sch-time">8:30</div><div class="sch-act"><div class="name">Visita médica</div><div class="loc">Consultorio</div></div></div>
+            <div class="sch-item"><div class="sch-time">9:30</div><div class="sch-act"><div class="name">Ejercicio suave</div><div class="loc">Jardín / Salón</div></div></div>
+            <div class="sch-item"><div class="sch-time">11:00</div><div class="sch-act"><div class="name">Taller creativo</div><div class="loc">Sala de actividades</div></div></div>
+          </div>
+        </div>
+        <div class="sch-col">
+          <div class="sch-col-head">☀️ Tarde</div>
+          <div class="sch-items">
+            <div class="sch-item"><div class="sch-time">12:30</div><div class="sch-act"><div class="name">Almuerzo</div><div class="loc">Comedor</div></div></div>
+            <div class="sch-item"><div class="sch-time">14:00</div><div class="sch-act"><div class="name">Siesta / Descanso</div><div class="loc">Habitaciones</div></div></div>
+            <div class="sch-item"><div class="sch-time">15:30</div><div class="sch-act"><div class="name">Refrigerio</div><div class="loc">Comedor</div></div></div>
+            <div class="sch-item"><div class="sch-time">16:00</div><div class="sch-act"><div class="name">Actividad grupal</div><div class="loc">Salón principal</div></div></div>
+            <div class="sch-item"><div class="sch-time">17:00</div><div class="sch-act"><div class="name">Visitas familiares</div><div class="loc">Zonas de visita</div></div></div>
+          </div>
+        </div>
+        <div class="sch-col">
+          <div class="sch-col-head">🌙 Noche</div>
+          <div class="sch-items">
+            <div class="sch-item"><div class="sch-time">18:30</div><div class="sch-act"><div class="name">Cena</div><div class="loc">Comedor</div></div></div>
+            <div class="sch-item"><div class="sch-time">19:30</div><div class="sch-act"><div class="name">TV / Lectura</div><div class="loc">Sala común</div></div></div>
+            <div class="sch-item"><div class="sch-time">20:30</div><div class="sch-act"><div class="name">Higiene nocturna</div><div class="loc">Habitaciones</div></div></div>
+            <div class="sch-item"><div class="sch-time">21:00</div><div class="sch-act"><div class="name">Medicamentos nocturnos</div><div class="loc">Habitaciones</div></div></div>
+            <div class="sch-item"><div class="sch-time">21:30</div><div class="sch-act"><div class="name">Descanso nocturno</div><div class="loc">Vigilancia 24h</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EQUIPO ══════════════════════════════════════════ -->
+<section class="section" id="equipo" style="background:var(--crema-2)">
+  <div class="container">
+    <div class="team-header fade-in">
+      <div class="s-label">Nuestro equipo</div>
+      <h2 class="s-title">Profesionales con <em>vocación</em></h2>
+      <p class="s-sub">Un equipo multidisciplinario seleccionado por su experiencia, empatía y amor por el cuidado del adulto mayor.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-in"><div class="team-img-wrap"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" alt="Dra. Carmen"/><div class="team-initials">CM</div></div><div class="team-body"><div class="team-name">Dra. Carmen Morales</div><div class="team-role">Médico Geriatra</div><div class="team-bio">Especialista en geriatría con 12 años de experiencia en cuidado integral del adulto mayor.</div></div></div>
+      <div class="team-card fade-in"><div class="team-img-wrap"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&q=80" alt="Enf. Patricia"/><div class="team-initials">PL</div></div><div class="team-body"><div class="team-name">Patricia López</div><div class="team-role">Jefe de Enfermería</div><div class="team-bio">Enfermera profesional con especialización en gerontología y 10 años de experiencia.</div></div></div>
+      <div class="team-card fade-in"><div class="team-img-wrap"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80" alt="Fisioterap."/><div class="team-initials">JR</div></div><div class="team-body"><div class="team-name">Juan Rodríguez</div><div class="team-role">Fisioterapeuta</div><div class="team-bio">Fisioterapeuta certificado en rehabilitación geriátrica y prevención de caídas.</div></div></div>
+      <div class="team-card fade-in"><div class="team-img-wrap"><img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&q=80" alt="Nutricionista"/><div class="team-initials">AS</div></div><div class="team-body"><div class="team-name">Andrea Suárez</div><div class="team-role">Nutricionista</div><div class="team-bio">Nutricionista dietista con especialización en nutrición del adulto mayor y enfermedades crónicas.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIOS ════════════════════════════════════ -->
+<section id="testimonios">
+  <div class="container">
+    <div class="testi-header fade-in">
+      <div class="s-label">Testimonios</div>
+      <h2 class="s-title">Lo que dicen las <em>familias</em></h2>
+      <p class="s-sub">La confianza de las familias es nuestro mayor orgullo.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-in"><div class="testi-stars">★★★★★</div><p class="testi-text">"Desde que mi mamá llegó a El Remanso cambió completamente. La vemos más contenta, más activa y muy bien cuidada. El personal es increíblemente atento y siempre nos mantienen informados."</p><div class="testi-author"><div class="t-avatar">MG</div><div><div class="t-name">María González</div><div class="t-rel">Hija de residente · 2 años</div></div></div></div>
+      <div class="testi-card fade-in"><div class="testi-stars">★★★★★</div><p class="testi-text">"Fue una decisión difícil pero la mejor que pudimos tomar. Mi papá tiene 85 años y nunca lo había visto tan bien atendido. Las instalaciones son impecables y el ambiente es de hogar."</p><div class="testi-author"><div class="t-avatar">CR</div><div><div class="t-name">Carlos Ramírez</div><div class="t-rel">Hijo de residente · 1 año</div></div></div></div>
+      <div class="testi-card fade-in"><div class="testi-stars">★★★★★</div><p class="testi-text">"Lo que más nos da tranquilidad es que hay médico permanente. Mi abuela tiene varias condiciones y siempre está controlada. Las actividades la mantienen activa y feliz todos los días."</p><div class="testi-author"><div class="t-avatar">LT</div><div><div class="t-name">Lucía Torres</div><div class="t-rel">Nieta de residente · 8 meses</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ════════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;margin-bottom:56px">
+      <div class="s-label">Preguntas frecuentes</div>
+      <h2 class="s-title">Resolvemos tus <em>dudas</em></h2>
+      <p class="s-sub" style="margin:0 auto">Sabemos que tomar esta decisión genera muchas preguntas. Aquí respondemos las más comunes.</p>
+    </div>
+    <div class="faq-grid" id="faqGrid"></div>
+  </div>
+</section>
+
+<!-- ══ CTA ════════════════════════════════════════════ -->
+<div class="cta-section">
+  <div class="container">
+    <div class="cta-inner fade-in">
+      <div class="cta-text">
+        <div class="big">¿Listo para darle a tu ser querido<br/><em>el hogar que merece?</em></div>
+        <p>Agenda una visita sin costo y sin compromiso. Ven a conocer nuestras instalaciones y a nuestro equipo. Estaremos encantados de atenderte.</p>
+      </div>
+      <div class="cta-btns">
+        <button class="cta-btn-wa" onclick="openWA('Hola! Quiero agendar una visita a Casa Hogar El Remanso para conocer las instalaciones.')">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Agendar visita por WhatsApp
+        </button>
+        <button class="cta-btn-ghost" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Formulario de contacto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTACTO ════════════════════════════════════════ -->
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="fade-in" style="text-align:center;margin-bottom:56px">
+      <div class="s-label">Contáctanos</div>
+      <h2 class="s-title">Estamos aquí para <em>ayudarte</em></h2>
+      <p class="s-sub" style="margin:0 auto">Escríbenos, llámanos o visítanos. Con gusto te orientamos y resolvemos todas tus preguntas.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <div class="c-item"><div class="c-icon">📍</div><div><div class="c-label">Dirección</div><div class="c-value">Calle 80 #45-32, Bogotá</div><div class="c-sub">Barrio Laureles — cerca al parque</div></div></div>
+        <div class="c-item"><div class="c-icon">📞</div><div><div class="c-label">Teléfono</div><div class="c-value">+57 601 234 5678</div><div class="c-sub">Lunes a domingo · 7am – 8pm</div></div></div>
+        <div class="c-item"><div class="c-icon">💬</div><div><div class="c-label">WhatsApp</div><div class="c-value">+57 300 000 0000</div><div class="c-sub">Respuesta en menos de 1 hora</div></div></div>
+        <div class="c-item"><div class="c-icon">✉️</div><div><div class="c-label">Correo</div><div class="c-value">info@elremanso.com.co</div><div class="c-sub">Respondemos en 24 horas</div></div></div>
+        <div class="c-item"><div class="c-icon">🕐</div><div><div class="c-label">Horario de visitas</div><div class="c-value">Todos los días</div><div class="c-sub">9:00am – 12:00pm · 3:00pm – 7:00pm</div></div></div>
+        <div class="map-frame">📍 Calle 80 #45-32, Bogotá — Ver en Google Maps</div>
+      </div>
+      <div class="contact-form fade-in">
+        <div class="form-title">Solicitar información</div>
+        <div class="form-sub">Te contactamos en menos de 2 horas en horario de atención.</div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Nombre completo</label><input class="form-control" id="f-nombre" type="text" placeholder="Tu nombre"/></div>
+          <div class="form-group"><label class="form-label">Teléfono</label><input class="form-control" id="f-tel" type="tel" placeholder="+57 300 000 0000"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Correo electrónico</label><input class="form-control" id="f-email" type="email" placeholder="correo@email.com"/></div>
+          <div class="form-group"><label class="form-label">¿Para quién es?</label>
+            <select class="form-control" id="f-para">
+              <option value="">Seleccionar...</option>
+              <option>Mi mamá / papá</option>
+              <option>Mi abuelo/a</option>
+              <option>Mi cónyuge</option>
+              <option>Otro familiar</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group"><label class="form-label">¿Qué necesitas?</label>
+            <select class="form-control" id="f-tipo">
+              <option value="">Tipo de consulta...</option>
+              <option>Información general</option>
+              <option>Agendar visita</option>
+              <option>Consulta de disponibilidad</option>
+              <option>Información de tarifas</option>
+              <option>Urgencia de ingreso</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group"><label class="form-label">Mensaje</label><textarea class="form-control" id="f-msg" placeholder="Cuéntanos sobre la situación y en qué podemos ayudarte..."></textarea></div>
+        </div>
+        <button class="form-submit" onclick="sendForm()">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Enviar mensaje por WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo"><div class="logo-icon">🌿</div><div class="logo-text">El <span>Remanso</span></div></div>
+        <p class="footer-desc">Casa Hogar especializada en cuidado geriátrico con 15 años de experiencia brindando amor, dignidad y bienestar a los adultos mayores de Bogotá.</p>
+        <div class="footer-social"><div class="soc">📘</div><div class="soc">📸</div><div class="soc">▶️</div><div class="soc">💬</div></div>
+      </div>
+      <div class="footer-col"><h4>Servicios</h4><ul><li><a href="#">Atención médica 24/7</a></li><li><a href="#">Fisioterapia</a></li><li><a href="#">Nutrición</a></li><li><a href="#">Estimulación cognitiva</a></li><li><a href="#">Cuidado personal</a></li></ul></div>
+      <div class="footer-col"><h4>Información</h4><ul><li><a href="#">Quiénes somos</a></li><li><a href="#">Nuestro equipo</a></li><li><a href="#">Instalaciones</a></li><li><a href="#">Actividades</a></li><li><a href="#">Tarifas y planes</a></li></ul></div>
+      <div class="footer-col"><h4>Contacto</h4><ul><li><a href="#">Calle 80 #45-32, Bogotá</a></li><li><a href="#">+57 601 234 5678</a></li><li><a href="#">+57 300 000 0000</a></li><li><a href="#">info@elremanso.com.co</a></li><li><a href="#" style="color:var(--amber-2)">Agendar visita →</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Casa Hogar El Remanso. Todos los derechos reservados.</p>
+      <div class="footer-cert"><div class="cert">HABILITADO MINSALUD</div><div class="cert">ISO 9001</div><div class="cert">SGSSS</div></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ FLOATING WHATSAPP ═══════════════════════════════ -->
+<div class="wa-float">
+  <div class="wa-tooltip">💬 ¡Escríbenos, respondemos ya!</div>
+  <button class="wa-btn" onclick="openWA('Hola! Vi la página de Casa Hogar El Remanso y me interesa obtener información.')">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </button>
+</div>
+<script src="js.js/geriatrico-script.js"></script>
+</body>
+</html>
