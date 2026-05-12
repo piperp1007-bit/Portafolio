@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>LUXE MODE — Tienda de Ropa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="/css/luxe-style.css">
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="ann-bar">✦ Envio gratis en compras mayores a $120.000 — Codigo: ENVIOGRATIS ✦</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">LUXE<span>MODE</span></div>
+    <nav>
+      <a href="#" class="active">Inicio</a>
+      <a href="#categorias" onclick="filterCat('all')">Mujer</a>
+      <a href="#categorias" onclick="filterCat('hombre')">Hombre</a>
+      <a href="#categorias" onclick="filterCat('ninos')">Ninos</a>
+      <a href="#ofertas">Ofertas</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Buscar..." id="searchInput" oninput="searchProducts()"/>
+      </div>
+      <button class="icon-btn" onclick="toggleCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <button class="burger">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-imgs">
+    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80" alt=""/>
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt=""/>
+    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&q=80" alt=""/>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Nueva Coleccion 2025</div>
+    <h1 class="hero-title">Viste<br/>con <em>estilo</em><br/>unico.</h1>
+    <p class="hero-sub">Descubre nuestra coleccion exclusiva. Moda que habla por ti, disenos que perduran.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">Ver coleccion</button>
+      <button class="btn-ghost" onclick="document.getElementById('ofertas').scrollIntoView({behavior:'smooth'})">Ver ofertas</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">200+</div><div class="lbl">Productos</div></div>
+    <div class="hero-stat"><div class="num">1.2k</div><div class="lbl">Clientes</div></div>
+    <div class="hero-stat"><div class="num">4.9★</div><div class="lbl">Calificacion</div></div>
+  </div>
+</section>
+
+<!-- CATEGORIAS -->
+<section class="cats" id="categorias">
+  <div class="cats-grid">
+    <div class="cat-card" onclick="filterCat('mujer')">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80" alt="Mujer"/>
+      <div class="cat-overlay">
+        <div class="cat-name">Mujer</div>
+        <div class="cat-count">62 productos</div>
+        <div class="cat-btn">Ver todo</div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="filterCat('hombre')">
+      <img src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=600&q=80" alt="Hombre"/>
+      <div class="cat-overlay">
+        <div class="cat-name">Hombre</div>
+        <div class="cat-count">48 productos</div>
+        <div class="cat-btn">Ver todo</div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="filterCat('ninos')">
+      <img src="https://images.unsplash.com/photo-1471286174890-9c112ac6823d?w=600&q=80" alt="Ninos"/>
+      <div class="cat-overlay">
+        <div class="cat-name">Ninos</div>
+        <div class="cat-count">34 productos</div>
+        <div class="cat-btn">Ver todo</div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="filterCat('all')">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="Accesorios"/>
+      <div class="cat-overlay">
+        <div class="cat-name">Accesorios</div>
+        <div class="cat-count">28 productos</div>
+        <div class="cat-btn">Ver todo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="section" id="productos">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Coleccion</div>
+      <h2 class="section-title">Nuestros <em>Productos</em></h2>
+    </div>
+    <a href="#" class="ver-todo">Ver todos →</a>
+  </div>
+  <div class="filters-bar" id="filtersBar">
+    <button class="filter-btn active" onclick="filterCat('all',this)">Todos</button>
+    <button class="filter-btn" onclick="filterCat('mujer',this)">Mujer</button>
+    <button class="filter-btn" onclick="filterCat('hombre',this)">Hombre</button>
+    <button class="filter-btn" onclick="filterCat('ninos',this)">Ninos</button>
+    <button class="filter-btn" onclick="filterCat('oferta',this)">Ofertas</button>
+    <select class="sort-select" onchange="sortProducts(this.value)">
+      <option value="default">Ordenar por</option>
+      <option value="precio-asc">Precio: Menor a Mayor</option>
+      <option value="precio-desc">Precio: Mayor a Menor</option>
+      <option value="nuevo">Mas Nuevo</option>
+    </select>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- OFERTA BANNER -->
+<div class="oferta-banner" id="ofertas">
+  <div class="oferta-text">
+    <div class="tag">Oferta Especial</div>
+    <h2>Hasta <em>40% off</em><br/>esta semana</h2>
+    <p>Aprovecha nuestras ofertas por tiempo limitado.<br/>Usa el codigo <strong style="color:var(--dorado)">MODO40</strong> en el carrito.</p>
+    <br/>
+    <button class="btn-primary" onclick="filterCat('oferta');document.getElementById('productos').scrollIntoView({behavior:'smooth'})">Ver ofertas</button>
+  </div>
+  <div class="countdown" id="countdown">
+    <div class="cd-item"><div class="cd-num" id="cd-h">00</div><div class="cd-lbl">Horas</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-item"><div class="cd-num" id="cd-m">00</div><div class="cd-lbl">Min</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-item"><div class="cd-num" id="cd-s">00</div><div class="cd-lbl">Seg</div></div>
+  </div>
+</div>
+
+<!-- INSTAGRAM -->
+<section class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Siguenos</div>
+      <h2 class="section-title">Instagram <em>Feed</em></h2>
+    </div>
+  </div>
+  <div class="ig-grid">
+    <div class="ig-item"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80" alt=""/><div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1"/></svg></div></div>
+    <div class="ig-item"><img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?w=400&q=80" alt=""/><div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1"/></svg></div></div>
+    <div class="ig-item"><img src="https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?w=400&q=80" alt=""/><div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1"/></svg></div></div>
+    <div class="ig-item"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&q=80" alt=""/><div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1"/></svg></div></div>
+    <div class="ig-item"><img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?w=400&q=80" alt=""/><div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1"/></svg></div></div>
+    <div class="ig-item"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&q=80" alt=""/><div class="ig-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1"/></svg></div></div>
+  </div>
+  <div class="ig-cta"><div class="ig-handle">Siguenos en <span>@luxemode.co</span></div><a href="https://instagram.com" target="_blank" class="btn-ghost" style="display:inline-block">Ver en Instagram</a></div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="section-tag" style="color:var(--dorado)">Boletin</div>
+  <h2 class="section-title" style="color:var(--negro)">Recibe <em style="color:var(--dorado)">ofertas exclusivas</em></h2>
+  <p style="color:#666">Suscribete y recibe un <strong>10% de descuento</strong> en tu primera compra, ademas de acceso anticipado a nuevas colecciones.</p>
+  <div class="nl-form">
+    <input type="email" placeholder="tucorreo@email.com"/>
+    <button onclick="subscribeNewsletter()">Suscribirme</button>
+  </div>
+  <div class="nl-tag">✓ Sin spam. Puedes cancelar cuando quieras.</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">LUXE<span>MODE</span></div>
+        <p class="footer-desc">Moda con caracter. Disenos exclusivos para quienes entienden que el estilo es una forma de vida.</p>
+        <div class="social-links">
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#">Nueva coleccion</a></li>
+          <li><a href="#">Mujer</a></li>
+          <li><a href="#">Hombre</a></li>
+          <li><a href="#">Ninos</a></li>
+          <li><a href="#">Ofertas</a></li>
+          <li><a href="#">Accesorios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Como comprar</a></li>
+          <li><a href="#">Envios y tiempos</a></li>
+          <li><a href="#">Cambios y devoluciones</a></li>
+          <li><a href="#">Guia de tallas</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="#">ventas@luxemode.co</a></li>
+          <li><a href="#">+57 300 000 0000</a></li>
+          <li><a href="#">Bogota, Colombia</a></li>
+          <li><a href="#" style="color:var(--dorado)">Escribir por WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 LUXE MODE. Todos los derechos reservados.</p>
+      <div class="payment-icons">
+        <div class="payment-icon">PSE</div>
+        <div class="payment-icon">VISA</div>
+        <div class="payment-icon">MC</div>
+        <div class="payment-icon">NEQUI</div>
+        <div class="payment-icon">BANCOLOMBIA</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="drawer-header">
+    <div class="drawer-title">Mi Carrito</div>
+    <button class="drawer-close" onclick="toggleCart()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="coupon-row">
+      <input type="text" id="couponInput" placeholder="Codigo de descuento"/>
+      <button onclick="applyCoupon()">Aplicar</button>
+    </div>
+    <div class="cart-totals" id="cartTotals"></div>
+    <button class="checkout-btn" onclick="openCheckout()">Finalizar Compra</button>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal" onclick="closeProductModal(event)">
+  <div class="product-modal" id="productModalContent"></div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutModal" onclick="closeCheckoutModal(event)">
+  <div class="checkout-modal" id="checkoutContent"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-icon">✓</div>
+  <span id="toastMsg"></span>
+</div>
+
+<script src="/js/luxe-script.js"></script>
+</body>
+</html>
