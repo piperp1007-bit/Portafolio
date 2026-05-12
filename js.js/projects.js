@@ -9,7 +9,7 @@ const proyectos = [
     desc: "E-commerce completo con catálogo dinámico y pedidos por WhatsApp.",
     tags: ["E-commerce", "JavaScript"],
     imagen: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800",
-    link: "#"
+    link: "luxe.html"
   },
   {
     titulo: "Mascotas Cotas",
