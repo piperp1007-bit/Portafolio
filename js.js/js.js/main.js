@@ -29,7 +29,7 @@ const barObs=new IntersectionObserver(entries=>{
 document.querySelectorAll('#skills').forEach(el=>barObs.observe(el));
 
 // ── WHATSAPP ──────────────────────────────────────────────────────
-const WA='57000000000';
+const WA='573134246522';
 function openWA(msg){window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');}
 function sendContact(){
   const nombre=document.getElementById('c-nombre').value.trim();
