@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Veterinaria</title>
+    <link rel="stylesheet" href="mascotas.css">
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <header>
+        <div class="logo">🐾 VetSalud</div>
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#catalogo">Catálogo</a>
+            <!-- Botón para ver el carrito -->
+            <button id="btn-carrito" onclick="toggleCarrito()">🛒 Carrito (<span id="contador-carrito">0</span>)</button>
+        </nav>
+    </header>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="seccion">
+        <h2>Nuestros Servicios</h2>
+        <div class="grid-contenedor">
+            <div class="tarjeta">
+                <h3>Consulta General</h3>
+                <p>Revisión completa para mantener a tu mascota sana y feliz.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Vacunación</h3>
+                <p>Esquemas de vacunación completos para perros y gatos.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Peluquería</h3>
+                <p>Baño, corte de pelo y limpieza de uñas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Catálogo de Productos -->
+    <section id="catalogo" class="seccion fondo-gris">
+        <h2>Catálogo de Productos</h2>
+        <div class="grid-contenedor">
+            <!-- Producto 1 -->
+            <div class="tarjeta producto">
+                <h3>Comida para Perro 2kg</h3>
+                <p class="precio">$45.000</p>
+                <button onclick="agregarAlCarrito('Comida para Perro 2kg', 45000)">Agregar al Carrito</button>
+            </div>
+            <!-- Producto 2 -->
+            <div class="tarjeta producto">
+                <h3>Arena para Gatos 5kg</h3>
+                <p class="precio">$25.000</p>
+                <button onclick="agregarAlCarrito('Arena para Gatos 5kg', 25000)">Agregar al Carrito</button>
+            </div>
+            <!-- Producto 3 -->
+            <div class="tarjeta producto">
+                <h3>Juguete Mordedor</h3>
+                <p class="precio">$15.000</p>
+                <button onclick="agregarAlCarrito('Juguete Mordedor', 15000)">Agregar al Carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Panel Lateral del Carrito de Compras -->
+    <aside id="panel-carrito" class="oculto">
+        <h2>Tu Pedido</h2>
+        <ul id="lista-carrito">
+            <!-- Aquí se insertarán los productos con JavaScript -->
+        </ul>
+        <div class="total-seccion">
+            <p>Total: $<span id="total-carrito">0</span></p>
+            <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar pedido por WhatsApp 📱</button>
+            <button class="btn-cerrar" onclick="toggleCarrito()">Cerrar</button>
+        </div>
+    </aside>
+
+    <script src="mascotas.js"></script>
+</body>
+</html>
