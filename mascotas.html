@@ -1,81 +1,363 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Veterinaria</title>
-    <link rel="stylesheet" href="css/mascotas-style.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Mascotas Cotas — Veterinaria en Bogotá. Consulta, vacunas, cirugía, peluquería y tienda de productos para tu mascota. ¡Pedidos por WhatsApp!"/>
+<title>Mascotas Cotas — Veterinaria & Petshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/mascotas-style.css"/>
 </head>
 <body>
 
-    <!-- Barra de Navegación -->
-    <header>
-        <div class="logo">🐾 VetSalud</div>
-        <nav>
-            <a href="#servicios">Servicios</a>
-            <a href="#catalogo">Catálogo</a>
-            <!-- Botón para ver el carrito -->
-            <button id="btn-carrito" onclick="toggleCarrito()">🛒 Carrito (<span id="contador-carrito">0</span>)</button>
-        </nav>
-    </header>
+<!-- ══ NAV ═══════════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="logo-bubble">🐾</div>
+      <div>
+        <div class="logo-txt">Mascotas<span>Cotas</span></div>
+        <div class="logo-sub">Veterinaria & Petshop</div>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-wa" onclick="openWA('Hola! Vi su página y quiero información sobre los servicios de Mascotas Cotas.')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </button>
+      <button class="burger" onclick="toggleMenu()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
 
-    <!-- Sección de Servicios -->
-    <section id="servicios" class="seccion">
-        <h2>Nuestros Servicios</h2>
-        <div class="grid-contenedor">
-            <div class="tarjeta">
-                <h3>Consulta General</h3>
-                <p>Revisión completa para mantener a tu mascota sana y feliz.</p>
-            </div>
-            <div class="tarjeta">
-                <h3>Vacunación</h3>
-                <p>Esquemas de vacunación completos para perros y gatos.</p>
-            </div>
-            <div class="tarjeta">
-                <h3>Peluquería</h3>
-                <p>Baño, corte de pelo y limpieza de uñas.</p>
-            </div>
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#servicios" onclick="toggleMenu()">🩺 Servicios</a>
+  <a href="#productos" onclick="toggleMenu()">🛍️ Productos</a>
+  <a href="#galeria" onclick="toggleMenu()">📸 Galería</a>
+  <a href="#nosotros" onclick="toggleMenu()">💚 Nosotros</a>
+  <a href="#equipo" onclick="toggleMenu()">👨‍⚕️ Equipo</a>
+  <a href="#contacto" onclick="toggleMenu()">📍 Contacto</a>
+  <button class="mob-wa" onclick="openWA('Hola! Quiero información de Mascotas Cotas.')">💬 Escribir por WhatsApp</button>
+</div>
+
+<!-- ══ HERO ═══════════════════════════════════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-shapes">
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+    <div class="hero-shape hero-shape-3"></div>
+  </div>
+  <div class="hero-paws">
+    <div class="hero-paw" style="top:15%;left:5%;animation-delay:0s">🐾</div>
+    <div class="hero-paw" style="top:60%;right:8%;animation-delay:1s;font-size:50px">🐾</div>
+    <div class="hero-paw" style="bottom:20%;left:40%;animation-delay:2s;font-size:40px">🐾</div>
+  </div>
+  <img class="hero-img" src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&q=80" alt="Mascotas"/>
+  <div class="hero-inner">
+    <div class="hero-left fade-up">
+      <div class="hero-badge">Veterinaria de confianza en Bogotá</div>
+      <h1 class="hero-title">Tu mascota merece<br/><span class="highlight">el mejor cuidado</span></h1>
+      <p class="hero-desc">En Mascotas Cotas cuidamos a tus peludos con amor, experiencia y la tecnología más avanzada. Consultas, vacunas, cirugías, baños y todo lo que necesitan.</p>
+      <div class="hero-btns">
+        <button class="hero-btn-wa" onclick="openWA('Hola! Quiero agendar una cita en Mascotas Cotas.')">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Agendar cita ahora
+        </button>
+        <button class="hero-btn-ver" onclick="document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">Ver servicios</button>
+      </div>
+      <div class="hero-pills">
+        <div class="hero-pill">🐕 Perros</div>
+        <div class="hero-pill">🐈 Gatos</div>
+        <div class="hero-pill">🐹 Pequeños</div>
+        <div class="hero-pill">🦜 Aves</div>
+        <div class="hero-pill">⭐ 4.9/5</div>
+      </div>
+    </div>
+    <div class="hero-card fade-up">
+      <div class="hcard-title">🐾 Nuestros servicios</div>
+      <div class="quick-items">
+        <div class="qi"><div class="qi-icon" style="background:#e8f5e9">🩺</div><div><div class="qi-name">Consulta veterinaria</div><div class="qi-desc">Diagnóstico profesional para tu mascota</div></div></div>
+        <div class="qi"><div class="qi-icon" style="background:#e3f2fd">💉</div><div><div class="qi-name">Vacunación</div><div class="qi-desc">Planes completos de vacunas</div></div></div>
+        <div class="qi"><div class="qi-icon" style="background:#fff8e1">✂️</div><div><div class="qi-name">Peluquería y baño</div><div class="qi-desc">Estética canina y felina profesional</div></div></div>
+        <div class="qi"><div class="qi-icon" style="background:#fce4ec">🔬</div><div><div class="qi-name">Laboratorio clínico</div><div class="qi-desc">Exámenes rápidos y confiables</div></div></div>
+        <div class="qi"><div class="qi-icon" style="background:#f3e5f5">🛍️</div><div><div class="qi-name">Tienda de productos</div><div class="qi-desc">Alimentos, accesorios y medicamentos</div></div></div>
+      </div>
+      <button class="hcard-cta" onclick="openWA('Hola! Quiero pedir información o agendar una cita en Mascotas Cotas.')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Escribir por WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fade-up"><div class="stat-n" id="s1">0</div><div class="stat-l">Años de experiencia</div></div>
+      <div class="stat-item fade-up"><div class="stat-n" id="s2">0</div><div class="stat-l">Mascotas atendidas</div></div>
+      <div class="stat-item fade-up"><div class="stat-n" id="s3">0</div><div class="stat-l">Clientes felices</div></div>
+      <div class="stat-item fade-up"><div class="stat-n" id="s4">0</div><div class="stat-l">Satisfacción</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SERVICIOS ══════════════════════════════════ -->
+<section class="section" id="servicios">
+  <div class="container">
+    <div class="services-header fade-up">
+      <div class="s-label">Servicios</div>
+      <h2 class="s-title">Todo lo que tu mascota <em>necesita</em></h2>
+      <p class="s-sub">Ofrecemos atención integral con equipos modernos y profesionales apasionados por el bienestar animal.</p>
+    </div>
+    <div class="services-grid">
+      <div class="srv fade-up"><div class="srv-icon-wrap" style="background:#e8f5e9">🩺</div><div class="srv-name">Consulta Veterinaria</div><div class="srv-desc">Diagnóstico completo con médicos veterinarios especializados. Atención preventiva y de emergencia.</div><ul class="srv-lista"><li>Examen físico completo</li><li>Diagnóstico y tratamiento</li><li>Seguimiento post-consulta</li><li>Urgencias y emergencias</li></ul><div class="srv-price">Desde $35.000</div></div>
+      <div class="srv fade-up"><div class="srv-icon-wrap" style="background:#e3f2fd">💉</div><div class="srv-name">Vacunación y Desparasitación</div><div class="srv-desc">Planes de vacunación completos para perros, gatos y otras mascotas. Carnet de vacunas incluido.</div><ul class="srv-lista"><li>Vacuna polivalente canina</li><li>Vacuna trivalente felina</li><li>Antirrábica</li><li>Desparasitación interna/externa</li></ul><div class="srv-price">Desde $28.000</div></div>
+      <div class="srv fade-up"><div class="srv-icon-wrap" style="background:#fff3e0">✂️</div><div class="srv-name">Peluquería y Estética</div><div class="srv-desc">Baño, corte, secado y estética profesional para que tu mascota siempre luzca espectacular.</div><ul class="srv-lista"><li>Baño medicado o estético</li><li>Corte de pelo y uñas</li><li>Limpieza de oídos</li><li>Perfumado y moño</li></ul><div class="srv-price">Desde $30.000</div></div>
+      <div class="srv fade-up"><div class="srv-icon-wrap" style="background:#fce4ec">⚕️</div><div class="srv-name">Cirugía y Hospitalización</div><div class="srv-desc">Procedimientos quirúrgicos con equipos modernos, anestesia segura y recuperación supervisada.</div><ul class="srv-lista"><li>Esterilización y castración</li><li>Cirugías de tejidos blandos</li><li>Hospitalización 24h</li><li>Cuidados postoperatorios</li></ul><div class="srv-price">Consultar</div></div>
+      <div class="srv fade-up"><div class="srv-icon-wrap" style="background:#f3e5f5">🔬</div><div class="srv-name">Laboratorio y Diagnóstico</div><div class="srv-desc">Exámenes de sangre, orina, radiografías y ecografías con resultados rápidos y confiables.</div><ul class="srv-lista"><li>Hemograma y bioquímica</li><li>Urianálisis</li><li>Radiología digital</li><li>Ecografía abdominal</li></ul><div class="srv-price">Desde $45.000</div></div>
+      <div class="srv fade-up"><div class="srv-icon-wrap" style="background:#e8f5e9">🦷</div><div class="srv-name">Odontología Veterinaria</div><div class="srv-desc">Limpieza dental, extracciones y tratamientos para mantener la salud bucal de tu mascota.</div><ul class="srv-lista"><li>Profilaxis dental</li><li>Extracción de piezas</li><li>Tratamiento de encías</li><li>Radiografía dental</li></ul><div class="srv-price">Desde $80.000</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NOSOTROS ════════════════════════════════════ -->
+<section class="section" id="nosotros" style="background:var(--gris-1)">
+  <div class="container">
+    <div class="nosotros-grid">
+      <div class="nos-imgs fade-up">
+        <img class="nos-img-main" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&q=80" alt="Veterinaria"/>
+        <img class="nos-img-2" src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80" alt="Mascotas"/>
+        <div class="nos-chip"><div class="big">10+</div><div class="small">Años</div></div>
+      </div>
+      <div class="nos-text fade-up">
+        <div class="s-label">Quiénes somos</div>
+        <h2 class="s-title">Amamos a tus <em>mascotas</em> como si fueran nuestras</h2>
+        <p class="s-sub">Somos una veterinaria familiar ubicada en Bogotá con más de 10 años cuidando la salud y bienestar de perros, gatos y otras mascotas. Nuestro equipo de profesionales trabaja con pasión y dedicación.</p>
+        <div class="nos-features">
+          <div class="nos-feat"><div class="icon">💚</div><div><div class="name">Amor animal</div><div class="desc">Cada mascota es tratada con amor</div></div></div>
+          <div class="nos-feat"><div class="icon">🏆</div><div><div class="name">Profesionales</div><div class="desc">Equipo altamente calificado</div></div></div>
+          <div class="nos-feat"><div class="icon">⚡</div><div><div class="name">Equipos modernos</div><div class="desc">Tecnología de punta</div></div></div>
+          <div class="nos-feat"><div class="icon">💊</div><div><div class="name">Medicamentos</div><div class="desc">Farmacia veterinaria completa</div></div></div>
         </div>
-    </section>
-
-    <!-- Sección de Catálogo de Productos -->
-    <section id="catalogo" class="seccion fondo-gris">
-        <h2>Catálogo de Productos</h2>
-        <div class="grid-contenedor">
-            <!-- Producto 1 -->
-            <div class="tarjeta producto">
-                <h3>Comida para Perro 2kg</h3>
-                <p class="precio">$45.000</p>
-                <button onclick="agregarAlCarrito('Comida para Perro 2kg', 45000)">Agregar al Carrito</button>
-            </div>
-            <!-- Producto 2 -->
-            <div class="tarjeta producto">
-                <h3>Arena para Gatos 5kg</h3>
-                <p class="precio">$25.000</p>
-                <button onclick="agregarAlCarrito('Arena para Gatos 5kg', 25000)">Agregar al Carrito</button>
-            </div>
-            <!-- Producto 3 -->
-            <div class="tarjeta producto">
-                <h3>Juguete Mordedor</h3>
-                <p class="precio">$15.000</p>
-                <button onclick="agregarAlCarrito('Juguete Mordedor', 15000)">Agregar al Carrito</button>
-            </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn-teal" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Agendar cita</button>
+          <button class="btn-ghost" onclick="document.getElementById('galeria').scrollIntoView({behavior:'smooth'})">Ver instalaciones</button>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Panel Lateral del Carrito de Compras -->
-    <aside id="panel-carrito" class="oculto">
-        <h2>Tu Pedido</h2>
-        <ul id="lista-carrito">
-            <!-- Aquí se insertarán los productos con JavaScript -->
-        </ul>
-        <div class="total-seccion">
-            <p>Total: $<span id="total-carrito">0</span></p>
-            <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar pedido por WhatsApp 📱</button>
-            <button class="btn-cerrar" onclick="toggleCarrito()">Cerrar</button>
+<!-- ══ PRODUCTOS ══════════════════════════════════ -->
+<section class="section" id="productos">
+  <div class="container">
+    <div class="prods-header fade-up">
+      <div class="s-label">Petshop</div>
+      <h2 class="s-title">Tienda de <em>productos</em> para mascotas</h2>
+      <p class="s-sub">Encuentra todo lo que tu mascota necesita. Haz tu pedido por WhatsApp y recibe asesoría personalizada.</p>
+    </div>
+    <div class="prod-cats">
+      <button class="pcat active" onclick="filterProds('all',this)">Todos</button>
+      <button class="pcat" onclick="filterProds('alimento',this)">🥩 Alimentos</button>
+      <button class="pcat" onclick="filterProds('accesorio',this)">🎾 Accesorios</button>
+      <button class="pcat" onclick="filterProds('medicina',this)">💊 Medicamentos</button>
+      <button class="pcat" onclick="filterProds('higiene',this)">🛁 Higiene</button>
+    </div>
+    <div class="prods-grid" id="prodsGrid"></div>
+    <div style="text-align:center;margin-top:36px">
+      <button class="btn-naranja" onclick="openWA('Hola! Quiero ver el catálogo completo de productos de Mascotas Cotas.')">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Ver catálogo completo por WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PET BANNER ════════════════════════════════ -->
+<div class="pet-banner">
+  <div class="container">
+    <div class="pet-banner-inner fade-up">
+      <div class="pet-banner-text">
+        <div class="big">¿Tu mascota necesita atención? <br/>¡Escríbenos ya! 🐾</div>
+        <p>Respondemos en minutos. Agenda tu cita, haz tu pedido de productos o resuelve cualquier duda directamente por WhatsApp sin filas ni esperas.</p>
+      </div>
+      <div class="pet-banner-btns">
+        <button class="pb-btn-wa" onclick="openWA('Hola! Necesito atención para mi mascota en Mascotas Cotas.')">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Escribir por WhatsApp
+        </button>
+        <button class="pb-btn-ghost" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Ver información de contacto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ GALERÍA ════════════════════════════════════ -->
+<section id="galeria">
+  <div class="container" style="padding-top:88px;padding-bottom:40px">
+    <div class="gal-header fade-up" style="text-align:center;margin-bottom:36px">
+      <div class="s-label">Galería</div>
+      <h2 class="s-title">Conoce nuestras <em>instalaciones</em></h2>
+      <p class="s-sub" style="margin:0 auto">Espacios modernos, limpios y diseñados para el bienestar de tu mascota.</p>
+    </div>
+  </div>
+  <div class="gal-grid" id="galGrid"></div>
+  <div style="text-align:center;padding:40px 0 88px">
+    <p style="font-size:13px;color:var(--gris-3);font-weight:600">Haz clic en cualquier imagen para verla completa · Navega con ← →</p>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <button class="lb-nav lb-prev" onclick="navLb(-1)">‹</button>
+  <img class="lb-img" id="lbImg" src="" alt=""/>
+  <button class="lb-nav lb-next" onclick="navLb(1)">›</button>
+</div>
+
+<!-- ══ EQUIPO ══════════════════════════════════════ -->
+<section class="section" id="equipo">
+  <div class="container">
+    <div class="team-header fade-up">
+      <div class="s-label">Nuestro equipo</div>
+      <h2 class="s-title">Profesionales que <em>aman</em> los animales</h2>
+      <p class="s-sub">Un equipo de veterinarios, enfermeros y estilistas apasionados por la salud y el bienestar animal.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-up"><div class="team-img"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" alt="Dra. Ana"/><div class="team-ini">AM</div></div><div class="team-body"><div class="team-name">Dra. Ana Martínez</div><div class="team-rol">Médica Veterinaria</div><div class="team-bio">Especialista en medicina interna y cirugía de pequeños animales con 8 años de experiencia.</div></div></div>
+      <div class="team-card fade-up"><div class="team-img"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80" alt="Dr. Juan"/><div class="team-ini">JC</div></div><div class="team-body"><div class="team-name">Dr. Juan Castro</div><div class="team-rol">Cirujano Veterinario</div><div class="team-bio">Veterinario cirujano con especialización en ortopedia y traumatología animal.</div></div></div>
+      <div class="team-card fade-up"><div class="team-img"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&q=80" alt="Valeria"/><div class="team-ini">VS</div></div><div class="team-body"><div class="team-name">Valeria Soto</div><div class="team-rol">Enfermera Veterinaria</div><div class="team-bio">Auxiliar veterinaria con 6 años de experiencia en cuidado y recuperación de pacientes.</div></div></div>
+      <div class="team-card fade-up"><div class="team-img"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Laura"/><div class="team-ini">LP</div></div><div class="team-body"><div class="team-name">Laura Peña</div><div class="team-rol">Estilista Canina</div><div class="team-bio">Especialista en estética canina y felina con diploma internacional en grooming profesional.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIOS ════════════════════════════════ -->
+<section id="testimonios">
+  <div class="container" style="padding:88px 32px">
+    <div class="testi-header fade-up">
+      <div class="s-label">Testimonios</div>
+      <h2 class="s-title">Lo que dicen nuestros <em>clientes</em></h2>
+      <p class="s-sub">Más de 500 familias confían en nosotros para el cuidado de sus mascotas.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-up"><div class="t-stars">★★★★★</div><p class="t-text">"Llevé a mi perro Rocky de urgencia y el servicio fue increíble. Lo atendieron de inmediato, el médico explicó todo con paciencia y Rocky se recuperó completamente. ¡Son los mejores!"</p><div class="t-author"><div class="t-avatar">MP</div><div><div class="t-name">María Pérez</div><div class="t-mascota">🐕 Rocky — Labrador de 4 años</div></div></div></div>
+      <div class="testi-card fade-up"><div class="t-stars">★★★★★</div><p class="t-text">"El servicio de peluquería es espectacular. Mi gata Mia quedó perfecta y muy tranquila después del baño. Noto que el equipo tiene mucho amor por los animales. Sin duda el mejor lugar."</p><div class="t-author"><div class="t-avatar">CR</div><div><div class="t-name">Carlos Rodríguez</div><div class="t-mascota">🐈 Mia — Siamés de 3 años</div></div></div></div>
+      <div class="testi-card fade-up"><div class="t-stars">★★★★★</div><p class="t-text">"Compro todos los productos de mi perrito aquí. Los precios son buenos y siempre me asesoran bien sobre qué alimento es mejor. El pedido por WhatsApp es súper fácil y rápido."</p><div class="t-author"><div class="t-avatar">LT</div><div><div class="t-name">Lucía Torres</div><div class="t-mascota">🐕 Beto — Beagle de 2 años</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ════════════════════════════════════════ -->
+<section class="section" id="faq" style="background:var(--gris-1)">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;margin-bottom:0">
+      <div class="s-label">Preguntas frecuentes</div>
+      <h2 class="s-title">Resolvemos tus <em>dudas</em></h2>
+      <p class="s-sub" style="margin:0 auto">Las preguntas que más nos hacen nuestros clientes.</p>
+    </div>
+    <div class="faq-grid" id="faqGrid"></div>
+  </div>
+</section>
+
+<!-- ══ CONTACTO ════════════════════════════════════ -->
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;margin-bottom:52px">
+      <div class="s-label">Contacto</div>
+      <h2 class="s-title">Visítanos o <em>escríbenos</em></h2>
+      <p class="s-sub" style="margin:0 auto">Estamos para atenderte. Tu mascota es nuestra prioridad.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="c-info fade-up">
+        <div class="c-item"><div class="c-icon">📍</div><div><div class="c-label">Dirección</div><div class="c-value">Calle 50 #22-15, Bogotá</div><div class="c-sub">Barrio Chapinero — a 2 cuadras del parque</div></div></div>
+        <div class="c-item"><div class="c-icon">📞</div><div><div class="c-label">Teléfono</div><div class="c-value">+57 601 345 6789</div><div class="c-sub">Llamadas y WhatsApp</div></div></div>
+        <div class="c-item"><div class="c-icon">💬</div><div><div class="c-label">WhatsApp</div><div class="c-value">+57 300 000 0000</div><div class="c-sub">Respuesta inmediata · Pedidos y citas</div></div></div>
+        <div class="c-item"><div class="c-icon">✉️</div><div><div class="c-label">Correo</div><div class="c-value">info@mascotascotas.com</div><div class="c-sub">Respondemos en el mismo día</div></div></div>
+        <div class="horario-box">
+          <div class="horario-title">🕐 Horarios de atención</div>
+          <div class="hor-row"><div class="hor-dia">Lunes a Viernes</div><div class="hor-hora">7:00am – 7:00pm</div></div>
+          <div class="hor-row"><div class="hor-dia">Sábados</div><div class="hor-hora">8:00am – 5:00pm</div></div>
+          <div class="hor-row"><div class="hor-dia">Domingos</div><div class="hor-hora">9:00am – 2:00pm</div></div>
+          <div class="hor-row"><div class="hor-dia">Urgencias</div><div class="hor-hora" style="color:var(--naranja)">24 horas 🚨</div></div>
         </div>
-    </aside>
+      </div>
+      <div class="contact-form fade-up">
+        <div class="form-title">Agendar cita o consulta 🐾</div>
+        <div class="form-sub">Te confirmamos por WhatsApp en menos de 30 minutos.</div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-lbl">Tu nombre</label><input class="form-ctrl" id="f-nombre" type="text" placeholder="Tu nombre completo"/></div>
+          <div class="form-group"><label class="form-lbl">WhatsApp</label><input class="form-ctrl" id="f-tel" type="tel" placeholder="+57 300 000 0000"/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-lbl">Nombre de la mascota</label><input class="form-ctrl" id="f-mascota" type="text" placeholder="¿Cómo se llama?"/></div>
+          <div class="form-group"><label class="form-lbl">Tipo de mascota</label>
+            <select class="form-ctrl" id="f-tipo">
+              <option value="">Seleccionar...</option>
+              <option>🐕 Perro</option><option>🐈 Gato</option><option>🐹 Hámster/Conejo</option><option>🦜 Ave</option><option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group"><label class="form-lbl">Servicio requerido</label>
+            <select class="form-ctrl" id="f-serv">
+              <option value="">¿Qué necesitas?</option>
+              <option>Consulta general</option><option>Vacunación</option><option>Peluquería / Baño</option><option>Cirugía</option><option>Laboratorio</option><option>Urgencia</option><option>Compra de productos</option><option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group"><label class="form-lbl">Mensaje adicional</label><textarea class="form-ctrl" id="f-msg" placeholder="Cuéntanos más sobre tu mascota o lo que necesitas..."></textarea></div>
+        </div>
+        <button class="form-submit" onclick="sendForm()">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Enviar por WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="js.js/mascotas.js"></script>
+<!-- ══ FOOTER ══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-txt">Mascotas<span>Cotas</span> 🐾</div>
+        <p class="footer-desc">Veterinaria y petshop en Bogotá con más de 10 años cuidando la salud y felicidad de tus mascotas. Atención con amor y profesionalismo.</p>
+        <div class="f-social"><div class="f-soc">📘</div><div class="f-soc">📸</div><div class="f-soc">▶️</div><div class="f-soc">🐦</div></div>
+      </div>
+      <div class="footer-col"><h4>Servicios</h4><ul><li><a href="#">Consulta veterinaria</a></li><li><a href="#">Vacunación</a></li><li><a href="#">Peluquería</a></li><li><a href="#">Cirugía</a></li><li><a href="#">Laboratorio</a></li></ul></div>
+      <div class="footer-col"><h4>Productos</h4><ul><li><a href="#">Alimentos</a></li><li><a href="#">Accesorios</a></li><li><a href="#">Medicamentos</a></li><li><a href="#">Higiene</a></li><li><a href="#">Ver catálogo →</a></li></ul></div>
+      <div class="footer-col"><h4>Contacto</h4><ul><li><a href="#">Calle 50 #22-15, Bogotá</a></li><li><a href="#">+57 601 345 6789</a></li><li><a href="#">+57 300 000 0000</a></li><li><a href="#">info@mascotascotas.com</a></li><li><a href="#" style="color:var(--amarillo)">Urgencias 24h 🚨</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Mascotas Cotas. Todos los derechos reservados.</p>
+      <div style="display:flex;gap:8px"><div class="footer-tag">VETERINARIA CERTIFICADA</div><div class="footer-tag">ICA</div></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ FLOATING WA ════════════════════════════════ -->
+<div class="wa-float">
+  <div class="wa-tip">🐾 ¡Escríbenos ya!</div>
+  <button class="wa-btn-float" onclick="openWA('Hola Mascotas Cotas! Vi su página y quiero información.')">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </button>
+</div>
+
+<script src="js.js/mascotas-script.js"></script>
 </body>
 </html>
