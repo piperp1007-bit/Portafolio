@@ -17,7 +17,7 @@ const proyectos = [
     desc: "Sitio web profesional con gestión de servicios y citas.",
     tags: ["Landing Page", "PHP"],
     imagen: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=800",
-    link: "#"
+    link: "mascotas.html"
   },
   {
     titulo: "CASA HOGAR",
