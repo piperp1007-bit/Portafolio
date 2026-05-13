@@ -51,7 +51,7 @@
         <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Trabajemos juntos</button>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="n">2</div><div class="l">Proyectos<br/>entregados</div></div>
+        <div class="stat"><div class="n">2</div><div class="l">Proyectos<br/>personales</div></div>
         <div class="stat"><div class="n">1+</div><div class="l">Año de<br/>experiencia</div></div>
         <div class="stat"><div class="n">100%</div><div class="l">Clientes<br/>satisfechos</div></div>
       </div>
@@ -343,7 +343,20 @@
     <a href="https://github.com/piperp1007-bit" target="_blank">GitHub</a>
   </div>
 </footer>
+<script>
+  // Bloquear clic derecho
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  }, false);
 
+  // Bloquear teclas de atajo (F12, Ctrl+Shift+I, etc)
+  document.onkeydown = function(e) {
+    if(e.keyCode == 123) return false; // F12
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+  }
+</script>
 <script src="js.js/js.js/canvas-bg.js"></script>
 <script src="js.js/projects.js"></script>
 <script src="js.js/js.js/main.js"></script>
