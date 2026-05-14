@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | Cognos SAS</title>
+    <link rel="icon" type="image/png" href="logo-cognos.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 1. ESTRUCTURA BASE Y RESPONSIVIDAD */
+        body { margin: 0; min-height: 100vh; background-color: #0f172a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #f8fafc; display: flex; }
+        
+        .sidebar { width: 260px; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); border-right: 1px solid rgba(0, 229, 255, 0.2); padding: 30px 20px; display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 100; transition: 0.3s; }
+        .main-content { flex-grow: 1; margin-left: 260px; padding: 40px; width: calc(100% - 260px); box-sizing: border-box; }
+
+        /* 2. LOGO Y MENÚ (Colores corregidos) */
+        .logo-container { display: flex; align-items: center; margin-bottom: 50px; text-decoration: none; }
+        .logo-container img { width: 35px; margin-right: 12px; }
+        .logo-container span { color: #00e5ff; font-weight: 800; font-size: 1.5rem; letter-spacing: 2px; }
+
+        .menu-item { color: #e2e8f0; text-decoration: none; padding: 15px; border-radius: 12px; margin-bottom: 10px; transition: 0.3s; display: block; cursor: pointer; font-weight: 500; background: transparent; border: 1px solid transparent; }
+        .menu-item:hover, .menu-item.active { background: rgba(0, 229, 255, 0.15); color: #00e5ff; border: 1px solid rgba(0, 229, 255, 0.3); }
+        
+        /* 3. TARJETAS Y TABLAS (Con scroll horizontal) */
+        .dashboard-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        
+        .table-responsive { overflow-x: auto; width: 100%; border-radius: 10px; }
+        .data-table { width: 100%; border-collapse: collapse; text-align: left; min-width: 700px; }
+        .data-table th { border-bottom: 2px solid #0056b3; padding: 15px; color: #00e5ff; font-size: 0.9rem; text-transform: uppercase; background: rgba(0,0,0,0.2); }
+        .data-table td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; color: #f8fafc; }
+        .data-table tr:hover { background: rgba(255,255,255,0.03); }
+
+        /* Secciones */
+        .dashboard-section { display: none; }
+        .dashboard-section.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 4. MODAL NUEVO USUARIO (Colores corregidos) */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 1000; }
+        .modal-content { background: #1e293b; padding: 40px; border-radius: 20px; width: 90%; max-width: 400px; border: 1px solid #00e5ff; box-shadow: 0 0 30px rgba(0, 229, 255, 0.2); color: white; }
+        
+        .modal-content h3 { color: #00e5ff; margin-top: 0; font-size: 1.5rem; margin-bottom: 20px; }
+        .modal-input { background: rgba(0,0,0,0.3); color: white; border: 1px solid #475569; padding: 12px 15px; border-radius: 8px; width: 100%; box-sizing: border-box; margin-bottom: 15px; font-size: 1rem; outline: none; transition: 0.3s; }
+        .modal-input:focus { border-color: #00e5ff; box-shadow: 0 0 10px rgba(0,229,255,0.2); }
+        .modal-input::placeholder { color: #94a3b8; }
+
+        /* 5. ADAPTACIÓN PARA MÓVILES Y TABLETS */
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            
+            /* El menú pasa arriba en móviles */
+            .sidebar { width: 100%; height: auto; position: relative; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 15px 20px; box-sizing: border-box; }
+            .logo-container { margin-bottom: 0; width: auto; }
+            
+            /* Los botones de navegación se ajustan */
+            .sidebar nav { display: flex; flex-direction: row; width: 100%; gap: 10px; margin-top: 15px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; }
+            .menu-item { margin-bottom: 0; flex: 1; text-align: center; white-space: nowrap; padding: 10px; font-size: 0.9rem; }
+            
+            /* El contenido ocupa todo el ancho */
+            .main-content { margin-left: 0; padding: 20px; width: 100%; }
+            h1 { font-size: 2rem !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="index.html" class="logo-container">
+            <img src="logo-cognos.png" alt="Logo Cognos">
+            <span>COGNOS</span>
+        </a>
+        
+        <nav>
+            <a id="tab-pqrs" class="menu-item active">📩 Bandeja PQRS</a>
+            <a id="tab-ventas" class="menu-item">🛒 Ventas</a>
+            <a id="tab-usuarios" class="menu-item">👥 Usuarios</a>
+        </nav>
+        
+        <div style="margin-top: auto; display: flex; align-items: center;">
+            <button id="btn-logout" class="btn-primary" style="background: #ef4444; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer;">Cerrar Sesión</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header style="margin-bottom: 40px;">
+            <h1 style="color: #00e5ff; font-size: 2.5rem; margin-bottom: 5px; margin-top: 0;">Ecosistema Administrativo</h1>
+            <p style="color: #cbd5e1; margin-top: 0;">Bienvenido al centro de control de Cognos SAS.</p>
+        </header>
+
+        <section id="sec-pqrs" class="dashboard-section active">
+            <div class="dashboard-card">
+                <h2 style="margin-top: 0; color: #f8fafc;">Solicitudes (PQRS)</h2>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>ID</th><th>Fecha</th><th>Cliente</th><th>Tipo</th><th>Mensaje</th></tr>
+                        </thead>
+                        <tbody id="body-pqrs"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-ventas" class="dashboard-section">
+            <div class="dashboard-card">
+                <h2 style="margin-top: 0; color: #f8fafc;">Historial de Ventas</h2>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Orden</th><th>Fecha</th><th>Cliente</th><th>Teléfono</th><th>Total</th><th>Estado</th></tr>
+                        </thead>
+                        <tbody id="body-ventas"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-usuarios" class="dashboard-section">
+            <div class="dashboard-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+                    <h2 style="margin: 0; color: #f8fafc;">Usuarios con Acceso</h2>
+                    <button onclick="abrirModal()" class="btn-primary" style="padding: 10px 20px; cursor: pointer;">+ Crear Usuario</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>ID</th><th>Nombre</th><th>Correo</th><th>Rol</th></tr>
+                        </thead>
+                        <tbody id="body-usuarios"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="modal-user" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Nuevo Administrador</h3>
+            <form id="form-nuevo-user">
+                <input type="text" id="add-nombre" class="modal-input" placeholder="Nombre completo" required>
+                <input type="email" id="add-email" class="modal-input" placeholder="Correo corporativo" required>
+                <input type="password" id="add-pass" class="modal-input" placeholder="Contraseña temporal" required>
+                
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <button type="submit" class="btn-primary" style="flex: 1; padding: 12px; cursor: pointer;">Guardar</button>
+                    <button type="button" onclick="cerrarModal()" style="flex: 1; background: transparent; border: 1px solid #475569; color: white; border-radius: 8px; cursor: pointer; transition: 0.3s;" onmouseover="this.style.background='#334155'" onmouseout="this.style.background='transparent'">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // --- NAVEGACIÓN ---
+        const tabs = { 'tab-pqrs': 'sec-pqrs', 'tab-ventas': 'sec-ventas', 'tab-usuarios': 'sec-usuarios' };
+
+        
+       
+        // --- SISTEMA DE SEGURIDAD (CANDADO) ---
+         if (localStorage.getItem('cognos_acceso_permitido') !== 'true') {
+             alert('⛔ Acceso denegado. Debes iniciar sesión primero.');
+            window.location.href = 'index.html';
+         }
+
+        // Modificamos el botón de Cerrar Sesión para que destruya la llave
+        document.getElementById('btn-logout').addEventListener('click', () => {
+            localStorage.removeItem('cognos_acceso_permitido');
+            window.location.href = 'index.html';
+        });
+
+        // ... (aquí sigue el resto de tu código normal de navegación y fetch)
+
+        Object.keys(tabs).forEach(tabId => {
+            document.getElementById(tabId).addEventListener('click', () => {
+                Object.keys(tabs).forEach(id => {
+                    document.getElementById(id).classList.remove('active');
+                    document.getElementById(tabs[id]).classList.remove('active');
+                });
+                document.getElementById(tabId).classList.add('active');
+                document.getElementById(tabs[tabId]).classList.add('active');
+                
+                if(tabId === 'tab-pqrs') cargarPQRS();
+                if(tabId === 'tab-ventas') cargarVentas();
+                if(tabId === 'tab-usuarios') cargarUsuarios();
+            });
+        });
+
+        // --- FETCH DE DATOS ---
+        async function cargarPQRS() {
+            try {
+                const res = await fetch('http://localhost:3000/api/pqrs');
+                const data = await res.json();
+                const tbody = document.getElementById('body-pqrs');
+                if(data.datos.length === 0) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Sin registros</td></tr>'; return; }
+                tbody.innerHTML = data.datos.map(d => `
+                    <tr>
+                        <td style="color:#00e5ff; font-weight:bold;">#${d.id}</td>
+                        <td>${new Date(d.fecha_creacion).toLocaleDateString()}</td>
+                        <td>${d.nombre}<br><small style="color:#94a3b8;">${d.email}</small></td>
+                        <td><span style="color:#f97316; border: 1px solid rgba(249,115,22,0.3); padding: 4px 8px; border-radius: 5px; font-size: 0.8rem;">${d.tipo_solicitud.toUpperCase()}</span></td>
+                        <td>${d.comentarios}</td>
+                    </tr>
+                `).join('');
+            } catch(e) { console.error(e); }
+        }
+
+        async function cargarVentas() {
+            try {
+                const res = await fetch('http://localhost:3000/api/pedidos');
+                const data = await res.json();
+                const tbody = document.getElementById('body-ventas');
+                if(data.datos.length === 0) { tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">Sin ventas registradas</td></tr>'; return; }
+                tbody.innerHTML = data.datos.map(d => `
+                    <tr>
+                        <td style="color:#00e5ff; font-weight:bold;">#${d.id}</td>
+                        <td>${new Date(d.fecha_creacion).toLocaleDateString()}</td>
+                        <td>${d.cliente_nombre}</td>
+                        <td>${d.telefono}</td>
+                        <td style="color:#10b981; font-weight:bold;">$${parseFloat(d.total).toLocaleString()}</td>
+                        <td style="color:#f59e0b;">${d.estado}</td>
+                    </tr>
+                `).join('');
+            } catch(e) { console.error(e); }
+        }
+
+        async function cargarUsuarios() {
+            try {
+                const res = await fetch('http://localhost:3000/api/usuarios');
+                const data = await res.json();
+                const tbody = document.getElementById('body-usuarios');
+                if(data.datos.length === 0) { tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Sin usuarios</td></tr>'; return; }
+                tbody.innerHTML = data.datos.map(d => `
+                    <tr>
+                        <td style="color:#00e5ff; font-weight:bold;">${d.id}</td>
+                        <td>${d.nombre}</td>
+                        <td style="color:#94a3b8;">${d.email}</td>
+                        <td><span style="background:rgba(0,229,255,0.1); color:#00e5ff; padding:4px 10px; border-radius:10px; font-size:0.8rem;">ACTIVO</span></td>
+                    </tr>
+                `).join('');
+            } catch(e) { console.error(e); }
+        }
+
+        // --- MODAL Y NUEVO USUARIO ---
+        function abrirModal() { document.getElementById('modal-user').style.display = 'flex'; }
+        function cerrarModal() { document.getElementById('modal-user').style.display = 'none'; }
+
+        document.getElementById('form-nuevo-user').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newUser = {
+                nombre: document.getElementById('add-nombre').value,
+                email: document.getElementById('add-email').value,
+                password: document.getElementById('add-pass').value
+            };
+
+            try {
+                const res = await fetch('http://localhost:3000/api/usuarios', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(newUser)
+                });
+                if(res.ok) {
+                    alert("Usuario creado exitosamente");
+                    cerrarModal();
+                    cargarUsuarios();
+                    document.getElementById('form-nuevo-user').reset();
+                } else {
+                    alert("Error. Es posible que el correo ya exista.");
+                }
+            } catch(e) { alert("Error de conexión con el servidor."); }
+        });
+
+        document.getElementById('btn-logout').addEventListener('click', () => window.location.href = 'index.html');
+
+        // Carga inicial
+        cargarPQRS();
+    </script>
+</body>
+</html>

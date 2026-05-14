@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema PQRS | Cognos SAS</title>
+    <link rel="icon" type="image/png" href="logo-cognos.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Luces de fondo -->
+    <div class="bg-glow glow-primary"></div>
+    <div class="bg-glow glow-white"></div>
+
+    <!-- =========================================
+         NAVEGACIÓN
+    ========================================= -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo-cognos.png" alt="Icono Cognos" class="logo-icon">
+                <span class="logo-text"><strong>COGNOS</strong><span class="logo-dot">.</span></span>
+            </a>
+            
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <div class="nav-menu-wrapper" id="nav-menu-wrapper">
+                <nav class="nav-links">
+                    <a href="index.html">Inicio</a>
+                    
+                    <div class="nav-item-dropdown">
+                        <a href="nosotros.html" class="dropdown-trigger">Nosotros <span class="arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="por-que-elegirnos.html">Por qué elegirnos</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item-dropdown">
+                        <a href="servicios.html" class="dropdown-trigger">Servicios <span class="arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="soluciones-en-la-nube.html">Soluciones en la Nube</a>
+                            <a href="soluciones-de-ciberseguridad.html">Soluciones de Ciberseguridad</a>
+                            <a href="soluciones-de-it-administrados.html">Soluciones de IT Administrados</a>
+                            <a href="consultoria-ti.html">Consultoria TI</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Pestaña Activa: Contáctenos -> PQRS -->
+                    <div class="nav-item-dropdown">
+                        <a href="contactenos.html" class="dropdown-trigger" style="color: var(--cognos-blue);">Contáctenos <span class="arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="PQRS.html" style="color: var(--cognos-blue);">PQRS</a>
+                            <a href="politica-de-privacidad.html">Politica de Privacidad</a>
+                            <a href="politicas-de-cookies.html">Politicas de Cookies</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item-dropdown">
+                        <a href="tienda.html" class="dropdown-trigger">Tienda <span class="arrow">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="Hardware.html">Hardware</a>
+                        </div>
+                    </div>
+
+                    <a href="blog.html">Blog</a>
+                </nav>
+
+                <div class="nav-actions">
+                    <button class="cart-btn" aria-label="Carrito">🛒 <span class="cart-count">2</span></button>
+                    <a href="#login" class="btn-login">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- =========================================
+         HERO INTERNO PQRS
+    ========================================= -->
+    <section class="internal-hero reveal">
+        <div class="container text-center">
+            <h1 class="gradient-text-blue" style="font-size: clamp(3rem, 5vw, 4.5rem);">Sistema PQRS</h1>
+            <p class="hero-subtitle">Peticiones, Quejas, Reclamos y sugerencias</p>
+        </div>
+    </section>
+
+    <!-- =========================================
+         CONTENIDO TEXTUAL Y FORMULARIO
+    ========================================= -->
+    <section class="container reveal" style="padding-bottom: 100px;">
+        <!-- Panel de Cristal para todo el contenido -->
+        <div class="intro-glass-panel" style="max-width: 900px; margin: 0 auto; padding: 60px;">
+            
+            <!-- Textos descriptivos de la imagen -->
+            <p style="margin-bottom: 40px; font-size: 1.05rem; color: var(--text-main);">
+                El Sistema de PQRS es una herramienta que nos permite conocer las inquietudes y manifestaciones de nuestros grupos de interés. A través de este, buscamos fortalecer nuestro servicio y avanzar en el camino hacia la excelencia operativa. Todo usuario tiene el derecho de presentar peticiones, quejas, reclamos y sugerencias ante COGNOS S.A.S.
+            </p>
+
+            <h2 style="color: var(--cognos-blue); font-size: 2rem; text-align: center; margin-bottom: 30px;">Tipos de Solicitudes</h2>
+            
+            <ul style="margin-bottom: 40px; padding-left: 20px; color: var(--text-main); font-size: 1.05rem; line-height: 1.8;">
+                <li style="margin-bottom: 15px;"><strong>Sugerencia:</strong> Propuesta presentada por un usuario para mejorar un proceso de la empresa relacionado con la prestación del servicio.</li>
+                <li style="margin-bottom: 15px;"><strong>Petición:</strong> Solicitud formal y respetuosa de información sobre la prestación de nuestros servicios.</li>
+                <li style="margin-bottom: 15px;"><strong>Queja:</strong> Manifestación de inconformidad del usuario por la prestación de un servicio o la calidad de un producto suministrado.</li>
+                <li style="margin-bottom: 15px;"><strong>Reclamo:</strong> Expresión de insatisfacción por el incumplimiento de un derecho, ocasionado por fallas en el servicio o en un producto.</li>
+            </ul>
+
+            <p style="margin-bottom: 50px; font-size: 1.05rem; color: var(--text-main);">
+                Nuestro compromiso es atender tu solicitud de manera oportuna y brindarte una respuesta dentro de los tiempos establecidos por la normatividad vigente.
+            </p>
+
+            <hr style="border: 0; height: 1px; background: var(--glass-border); margin-bottom: 50px;">
+
+            <!-- FORMULARIO PQRS -->
+            <form id="form-pqrs" class="cyber-form-card" style="padding: 40px; background: transparent; box-shadow: none; border: none;">
+    
+    <div class="input-group" style="margin-bottom: 30px;">
+        <label class="static-label">Relación con COGNOS SAS</label>
+        <select id="pqrs-relacion" class="cyber-input" required>
+            <option value="" disabled selected>Elige uno</option>
+            <option value="cliente">Cliente</option>
+            <option value="proveedor">Proveedor</option>
+            <option value="empleado">Empleado</option>
+            <option value="otro">Otro</option>
+        </select>
+    </div>
+
+    <div class="input-group" style="margin-bottom: 30px;">
+        <label class="static-label">Tipo de Solicitud *</label>
+        <select id="pqrs-tipo" class="cyber-input" required>
+            <option value="" disabled selected>Elige uno</option>
+            <option value="peticion">Petición</option>
+            <option value="queja">Queja</option>
+            <option value="reclamo">Reclamo</option>
+            <option value="sugerencia">Sugerencia</option>
+        </select>
+    </div>
+
+    <div class="input-group" style="margin-bottom: 30px;">
+        <label class="static-label">Nombre Completo *</label>
+        <input type="text" id="pqrs-nombre" class="cyber-input" required>
+    </div>
+
+    <div class="input-group" style="margin-bottom: 30px;">
+        <label class="static-label">Cargo *</label>
+        <input type="text" id="pqrs-cargo" class="cyber-input" required>
+    </div>
+
+    <div class="input-group" style="margin-bottom: 30px;">
+        <label class="static-label">Email *</label>
+        <input type="email" id="pqrs-email" class="cyber-input" required>
+    </div>
+
+    <div class="input-group" style="margin-bottom: 40px;">
+        <label class="static-label">Comentarios *</label>
+        <textarea id="pqrs-comentarios" class="cyber-input" required style="height: 120px;"></textarea>
+    </div>
+
+    <div class="input-group" style="margin-bottom: 40px;">
+        <label class="static-label" style="display: block; margin-bottom: 10px;">Calificación de estrellas</label>
+        <div class="star-rating">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5" title="5 estrellas">★</label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4" title="4 estrellas">★</label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3" title="3 estrellas">★</label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2" title="2 estrellas">★</label>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1" title="1 estrella">★</label>
+        </div>
+    </div>
+
+    <button type="submit" id="btn-submit-pqrs" class="btn-primary" style="width: 100%; border-radius: 5px; background: #e87a38; padding: 18px; font-size: 1.1rem; text-transform: uppercase;">Enviar Solicitud</button>
+</form>
+
+        </div>
+    </section>
+    <footer class="glass-footer reveal">
+        <div class="container footer-content">
+            <div class="footer-col brand-col">
+                <div class="logo">
+                    <img src="logo-cognos.png" alt="Icono Cognos" class="logo-icon">
+                    <span class="logo-text"><strong>COGNOS</strong><span class="logo-dot">.</span></span>
+                </div>
+                <p class="footer-desc">Elevando el estándar de la tecnología corporativa. Ecosistemas seguros, escalables y siempre disponibles.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="politica-de-privacidad.html">Política de Privacidad</a>
+                <a href="politicas-de-cookies.html">Políticas de Cookies</a>
+                <a href="PQRS.html">PQRS</a>
+            </div>
+            <div class="footer-col">
+                <h4>Sede Central</h4>
+                <p class="contact-item">✉️ : Info@cognos.com.co</p>
+                <p class="contact-item">📞  +57 304 219 0531</p>
+                <p class="contact-item">📍 Cl. 74 #15 - 22 | Of. 302 -   Bogotá, Colombia</p>
+            </div>
+            <div class="footer-col form-col">
+                <h4>Iniciar Proyecto</h4>
+                <div class="cyber-input-group">
+                    <input type="email" placeholder="Tu correo corporativo" class="cyber-input">
+                    <button class="btn-cyber-submit" aria-label="Enviar">➔</button>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/cognossas/" class="social-btn">In</a>
+                    <a href="https://x.com/COGNOS_SAS" class="social-btn">𝕏</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Cognos SAS. Diseñado para el futuro.</p></div>
+    </footer>
+    
+    <a href="https://wa.me/573000000000" class="whatsapp-float left-side" target="_blank" aria-label="WhatsApp"><div class="wa-icon">💬</div></a>
+
+    <div class="ai-bot-float right-side" id="ai-bot-trigger">
+        <div class="bot-icon">🤖</div>
+        <div class="bot-tooltip">¿Dudas? Habla con la IA</div>
+        <div class="bot-pulse-ring"></div>
+    </div>
+
+    <div class="bot-chat-window" id="bot-chat-window">
+        <div class="chat-header">
+            <div class="chat-title"><span class="status-dot"></span> Cognos AI</div>
+            <button class="close-chat" id="close-chat">✕</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">Hola, soy el asistente virtual de Cognos. ¿En qué puedo ayudarte hoy?</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Escribe tu consulta..." autocomplete="off">
+            <button id="send-btn" class="send-btn">➤</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@latest/build/spline-viewer.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

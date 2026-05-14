@@ -26,6 +26,14 @@ const proyectos = [
     tags: ["Salud", "Landing Page", "JS"],
     imagen: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800",
     link: "geriatrico.html" // Enlace al nuevo archivo
+  },
+  {
+    titulo: "COGNOS IT SOLUTIONS",
+    subtitulo: "Consultoría y Ciberseguridad",
+    desc: "Plataforma integral de servicios TI con blog, tienda de hardware y soluciones en la nube.",
+    tags: ["TI Solutions", "Cybersecurity", "Full Stack"],
+    imagen: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800", // Imagen temática de tecnología
+    link: "index-cognos.html" // Asegúrate de que el nombre coincida con tu archivo principal de Cognos
   }
 ];
 
