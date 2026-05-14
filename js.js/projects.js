@@ -29,11 +29,11 @@ const proyectos = [
   },
   {
     titulo: "COGNOS IT SOLUTIONS",
-    subtitulo: "Consultoría y Ciberseguridad",
-    desc: "Plataforma integral de servicios TI con blog, tienda de hardware y soluciones en la nube.",
-    tags: ["TI Solutions", "Cybersecurity", "Full Stack"],
-    imagen: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800", // Imagen temática de tecnología
-    link: "index-cognos.html" // Asegúrate de que el nombre coincida con tu archivo principal de Cognos
+    subtitulo: "Sistema Full Stack con PostgreSQL",
+    desc: "Plataforma TI con gestión de datos en tiempo real, autenticación y base de datos relacional.",
+    tags: ["PostgreSQL", "Node.js", "Express", "DBeaver"],
+    imagen: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+    link: "https://github.com/tu-usuario/tu-repo-de-cognos" // Mejor dirigir al código si no tienes hosting de servidor
   }
 ];
 
